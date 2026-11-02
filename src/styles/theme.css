@@ -1,0 +1,476 @@
+/* ==========================================================================
+   MIDNIGHT GOLD — LUXURY MATHEMATICS LEARNING PLATFORM DESIGN SYSTEM
+   ========================================================================== */
+
+:root {
+  /* Color Palette */
+  --color-midnight: #080D1A;
+  --color-navy-surface: #10182A;
+  --color-navy-elevated: #16223B;
+  --color-royal-blue: #233D70;
+  --color-royal-accent: #2A4885;
+  --color-champagne-gold: #D6B875;
+  --color-gold-light: #F2E3BC;
+  --color-gold-deep: #B38E47;
+  --color-warm-ivory: #F5F1E8;
+  --color-ivory-surface: #FAF7F2;
+  --color-muted-silver: #A9B2C3;
+  --color-silver-subtle: #6D778B;
+  
+  /* Borders & Highlights */
+  --border-gold-subtle: rgba(214, 184, 117, 0.18);
+  --border-gold-medium: rgba(214, 184, 117, 0.35);
+  --border-gold-glow: rgba(214, 184, 117, 0.6);
+  --border-navy-subtle: rgba(35, 61, 112, 0.3);
+
+  /* Gradients */
+  --gradient-gold: linear-gradient(135deg, #FFF7E6 0%, #F5DEB3 22%, #D4AF37 55%, #B88E28 85%, #946C15 100%);
+  --gradient-gold-text: linear-gradient(135deg, #FFF6E0 0%, #E8CCA1 40%, #D6B875 100%);
+  --gradient-navy-hero: radial-gradient(circle at 50% 0%, #1A2B4C 0%, #10182A 45%, #080D1A 100%);
+  --gradient-card: linear-gradient(180deg, rgba(22, 34, 59, 0.8) 0%, rgba(16, 24, 42, 0.95) 100%);
+  --gradient-glass: linear-gradient(135deg, rgba(255, 255, 255, 0.04) 0%, rgba(214, 184, 117, 0.02) 100%);
+
+  /* Shadows */
+  --shadow-gold-subtle: 0 4px 20px rgba(214, 184, 117, 0.08);
+  --shadow-gold-hover: 0 10px 30px rgba(214, 184, 117, 0.18);
+  --shadow-card: 0 12px 32px rgba(4, 7, 15, 0.6);
+  --shadow-elevated: 0 20px 48px rgba(3, 5, 12, 0.8);
+
+  /* Typography */
+  --font-serif: 'Playfair Display', Georgia, serif;
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
+
+  /* Spacing & Radii */
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+  --radius-full: 9999px;
+  
+  --transition-smooth: all 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Base Resets */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-family: var(--font-sans);
+  background-color: var(--color-midnight);
+  color: var(--color-warm-ivory);
+  scroll-behavior: smooth;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-overflow-scrolling: touch;
+  -webkit-tap-highlight-color: transparent;
+  overflow-x: hidden;
+  max-width: 100vw;
+}
+
+body {
+  min-height: 100vh;
+  width: 100%;
+  max-width: 100vw;
+  background-color: var(--color-midnight);
+  overflow-x: hidden;
+  line-height: 1.6;
+  -webkit-text-size-adjust: 100%;
+}
+
+button, a, input, select, textarea {
+  touch-action: manipulation;
+}
+
+/* Selection */
+::selection {
+  background: rgba(214, 184, 117, 0.3);
+  color: #FFFFFF;
+}
+
+/* Typography Helpers */
+.font-serif {
+  font-family: var(--font-serif);
+}
+
+.font-mono {
+  font-family: var(--font-mono);
+}
+
+.text-gold-gradient {
+  background: var(--gradient-gold-text);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+}
+
+.text-champagne {
+  color: var(--color-champagne-gold);
+}
+
+.text-silver {
+  color: var(--color-muted-silver);
+}
+
+.text-ivory {
+  color: var(--color-warm-ivory);
+}
+
+/* Glassmorphism & Cards */
+.gold-card {
+  background: var(--gradient-card);
+  border: 1px solid var(--border-gold-subtle);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-card);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  transition: var(--transition-smooth);
+}
+
+.gold-card:hover {
+  border-color: var(--border-gold-medium);
+  box-shadow: var(--shadow-gold-hover);
+  transform: translateY(-3px);
+}
+
+.gold-card-static {
+  background: var(--gradient-card);
+  border: 1px solid var(--border-gold-subtle);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-card);
+}
+
+/* Ivory Study Card (for high-contrast formula sheets and lecture reading) */
+.ivory-card {
+  background: var(--color-ivory-surface);
+  color: #172033;
+  border: 1px solid #E6D8BA;
+  border-radius: var(--radius-lg);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+}
+
+/* ==========================================================================
+/* ==========================================================================
+   ULTRA-LUXURY BUTTONS SYSTEM (Bespoke Midnight & Auric Gold)
+   ========================================================================== */
+
+/* Primary Button: Refined Satin Champagne Gold (Toned-down elegant warmth) */
+.btn-gold-primary {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.85rem;
+  background: linear-gradient(135deg, #E6C887 0%, #D4AF37 36%, #B88E28 72%, #8F6915 100%);
+  color: #060A14;
+  font-family: var(--font-sans);
+  font-weight: 700;
+  font-size: 0.98rem;
+  letter-spacing: 0.025em;
+  padding: 0.92rem 2.2rem;
+  border-radius: 9999px;
+  border: 1px solid rgba(255, 235, 180, 0.4);
+  box-shadow: 
+    inset 0 1px 1px rgba(255, 255, 255, 0.45),
+    inset 0 -1px 2px rgba(0, 0, 0, 0.25),
+    0 6px 18px -2px rgba(180, 140, 40, 0.28);
+  cursor: pointer;
+  text-decoration: none;
+  overflow: hidden;
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  user-select: none;
+}
+
+/* Subtle Shimmer Sweep on Hover Only (Soft, Non-Blinding) */
+.btn-gold-primary::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -120%;
+  width: 50%;
+  height: 200%;
+  background: linear-gradient(
+    90deg, 
+    transparent 0%, 
+    rgba(255, 255, 255, 0.3) 50%, 
+    transparent 100%
+  );
+  transform: rotate(25deg);
+  pointer-events: none;
+  transition: left 0.75s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.btn-gold-primary:hover::before {
+  left: 220%;
+}
+
+.btn-gold-primary:hover {
+  transform: translateY(-2px) scale(1.015);
+  background: linear-gradient(135deg, #EED292 0%, #DCB445 36%, #BF9126 72%, #966B12 100%);
+  border-color: rgba(255, 240, 195, 0.6);
+  box-shadow: 
+    inset 0 1px 1.5px rgba(255, 255, 255, 0.6),
+    0 10px 24px -2px rgba(180, 140, 40, 0.38);
+}
+
+.btn-gold-primary:active {
+  transform: translateY(0px) scale(0.985);
+  box-shadow: 
+    inset 0 2px 3px rgba(0, 0, 0, 0.2),
+    0 3px 8px rgba(180, 140, 40, 0.2);
+}
+
+
+/* Secondary Button: Frosted Deep Midnight Obsidian Glass & Champagne Aura */
+.btn-gold-secondary {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.85rem;
+  background: linear-gradient(180deg, rgba(22, 34, 59, 0.8) 0%, rgba(10, 16, 30, 0.96) 100%);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  color: #FFFFFF;
+  font-family: var(--font-sans);
+  font-weight: 600;
+  font-size: 0.96rem;
+  letter-spacing: 0.02em;
+  padding: 0.92rem 2.2rem;
+  border-radius: 9999px;
+  border: 1px solid rgba(214, 184, 117, 0.42);
+  box-shadow: 
+    inset 0 1px 1px rgba(255, 255, 255, 0.22),
+    inset 0 -1px 2px rgba(0, 0, 0, 0.5),
+    0 10px 30px rgba(0, 0, 0, 0.6),
+    0 0 20px rgba(214, 184, 117, 0.18);
+  cursor: pointer;
+  text-decoration: none;
+  overflow: hidden;
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  user-select: none;
+}
+
+.btn-gold-secondary::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -120%;
+  width: 50%;
+  height: 200%;
+  background: linear-gradient(
+    90deg, 
+    transparent 0%, 
+    rgba(214, 184, 117, 0.3) 50%, 
+    transparent 100%
+  );
+  transform: rotate(25deg);
+  transition: left 0.75s cubic-bezier(0.16, 1, 0.3, 1);
+  pointer-events: none;
+}
+
+.btn-gold-secondary:hover::before {
+  left: 220%;
+}
+
+.btn-gold-secondary:hover {
+  transform: translateY(-3px) scale(1.025);
+  background: linear-gradient(180deg, rgba(30, 48, 84, 0.9) 0%, rgba(14, 23, 42, 0.98) 100%);
+  border-color: rgba(214, 184, 117, 0.9);
+  color: #FFFFFF;
+  box-shadow: 
+    inset 0 1px 2px rgba(255, 255, 255, 0.35),
+    0 16px 42px rgba(0, 0, 0, 0.75),
+    0 0 35px rgba(214, 184, 117, 0.42);
+}
+
+.btn-gold-secondary:active {
+  transform: translateY(0px) scale(0.985);
+}
+
+/* Luxury Emblem Icon Holders inside Buttons */
+.btn-icon-bubble-gold {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: rgba(6, 10, 20, 0.14);
+  border: 1px solid rgba(6, 10, 20, 0.15);
+  color: #060A14;
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), background 0.3s ease;
+}
+
+.btn-gold-primary:hover .btn-icon-bubble-gold {
+  transform: translateX(-3px) rotate(-8deg) scale(1.1);
+  background: rgba(6, 10, 20, 0.22);
+}
+
+.btn-icon-bubble-youtube {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, rgba(255, 40, 40, 0.24) 0%, rgba(180, 0, 0, 0.32) 100%);
+  border: 1px solid rgba(255, 80, 80, 0.45);
+  box-shadow: 
+    inset 0 1px 1px rgba(255, 255, 255, 0.25),
+    0 0 12px rgba(255, 40, 40, 0.35);
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.btn-gold-secondary:hover .btn-icon-bubble-youtube {
+  transform: scale(1.14);
+  background: linear-gradient(135deg, rgba(255, 40, 40, 0.38) 0%, rgba(200, 0, 0, 0.48) 100%);
+  border-color: rgba(255, 110, 110, 0.75);
+  box-shadow: 
+    inset 0 1px 1px rgba(255, 255, 255, 0.4),
+    0 0 20px rgba(255, 50, 50, 0.75);
+}
+
+/* Red YouTube Brand Button */
+.btn-youtube {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.65rem;
+  background: linear-gradient(135deg, #FF1A1A 0%, #D40000 50%, #9E0000 100%);
+  color: #FFFFFF;
+  font-weight: 600;
+  font-size: 0.92rem;
+  padding: 0.75rem 1.6rem;
+  border-radius: 9999px;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  box-shadow: 
+    inset 0 1px 1px rgba(255, 255, 255, 0.6),
+    inset 0 -1px 2px rgba(0, 0, 0, 0.4),
+    0 8px 24px rgba(204, 0, 0, 0.45);
+  cursor: pointer;
+  text-decoration: none;
+  overflow: hidden;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.btn-youtube:hover {
+  background: linear-gradient(135deg, #FF3333 0%, #E60000 50%, #B30000 100%);
+  transform: translateY(-2px) scale(1.02);
+  border-color: rgba(255, 255, 255, 0.6);
+  box-shadow: 
+    inset 0 1px 2px rgba(255, 255, 255, 0.8),
+    0 12px 30px rgba(255, 30, 30, 0.65);
+}
+
+/* Math Notation Containers */
+.katex-math-wrapper {
+  color: #F8EACB;
+  font-family: var(--font-mono);
+}
+
+.katex-inline {
+  display: inline-block;
+  padding: 0 0.2rem;
+}
+
+.katex-block {
+  display: block;
+  margin: 1.25rem 0;
+  padding: 1.2rem 1.5rem;
+  background: rgba(8, 13, 26, 0.75);
+  border: 1px solid var(--border-gold-subtle);
+  border-radius: var(--radius-md);
+  overflow-x: auto;
+  text-align: center;
+}
+
+.katex-block::-webkit-scrollbar {
+  height: 4px;
+}
+.katex-block::-webkit-scrollbar-thumb {
+  background: var(--border-gold-medium);
+  border-radius: 4px;
+}
+
+/* Badges */
+.badge-gold {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.3rem 0.8rem;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--color-champagne-gold);
+  background: rgba(214, 184, 117, 0.1);
+  border: 1px solid var(--border-gold-subtle);
+  border-radius: var(--radius-full);
+}
+
+.badge-royal {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.3rem 0.8rem;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #8EB3F5;
+  background: rgba(35, 61, 112, 0.3);
+  border: 1px solid rgba(142, 179, 245, 0.2);
+  border-radius: var(--radius-full);
+}
+
+/* Subtle Mathematical Grid Background */
+.math-grid-bg {
+  position: relative;
+  background-color: var(--color-midnight);
+}
+
+.math-grid-bg::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: 
+    radial-gradient(circle at 50% 20%, rgba(35, 61, 112, 0.2) 0%, transparent 60%),
+    linear-gradient(to right, rgba(214, 184, 117, 0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(214, 184, 117, 0.03) 1px, transparent 1px);
+  background-size: 100% 100%, 60px 60px, 60px 60px;
+  pointer-events: none;
+}
+
+/* Layout Utilities */
+.container-luxury {
+  width: 100%;
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.section-spacing {
+  padding: 5.5rem 0;
+}
+
+@media (max-width: 768px) {
+  .section-spacing {
+    padding: 3.5rem 0;
+  }
+  .container-luxury {
+    padding: 0 1.25rem;
+  }
+}
+
+/* Focus Visible */
+a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible {
+  outline: 2px solid var(--color-champagne-gold);
+  outline-offset: 3px;
+}
